@@ -1,0 +1,14 @@
+- if !user_signed_in?
+  .header
+    h1 Please log in
+  .content
+    h2.content_subhead Чтобы просматривать список заявок, необходимо зарегистрироваться
+- else
+  .header
+    h1 Привет #{current_user.name}!
+
+    p Мои заказы
+    table {border=1 style="border-collapse: separate;"}
+      - for order in @my_orders do
+        tr
+          td = order.name
